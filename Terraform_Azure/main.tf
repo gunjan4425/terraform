@@ -1,10 +1,15 @@
-provider "azurerm" {
-  version = "2.2.0"
-  features {}
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=2.46.0"
+    }
+  }
 }
 
 resource "azurerm_resource_group" "web_server_rg" {
-    name = "web-rg"
-    location = "westus2"
+    name = var.web_server_rg
+    location = var.web_server_location
   
 }
+
